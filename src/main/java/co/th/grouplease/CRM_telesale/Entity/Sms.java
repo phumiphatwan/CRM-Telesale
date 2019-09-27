@@ -1,11 +1,11 @@
 package co.th.grouplease.CRM_telesale.Entity;
 
-
-import co.th.grouplease.CRM_telesale.Common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Getter
@@ -13,9 +13,12 @@ import javax.persistence.Table;
 @Entity(name = "Sms")
 @Table(name = "sms")
 
-public class Sms extends BaseEntity {
+public class Sms {
 
+    @Id
+    @GeneratedValue
     private long smsID ;
+
     private long lead_id ;
     private long ACID ;
     private String Contents ;

@@ -1,11 +1,12 @@
 package co.th.grouplease.CRM_telesale.Entity;
 
-import co.th.grouplease.CRM_telesale.Common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.tomcat.jni.Time;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -14,8 +15,12 @@ import java.util.Date;
 @Entity(name = "Meetings")
 @Table(name= "meetings")
 
-public class Meetings extends BaseEntity {
+public class Meetings{
+
+    @Id
+    @GeneratedValue
     private long meeID	;
+
     private long lead_id	;
     private long ACID	;
 
@@ -30,7 +35,7 @@ public class Meetings extends BaseEntity {
     private String GROUP_STATUS	;
     private String ACTION_STATUS  ;
     private Date PROMISE_DATE ;
-    private Time PROMISE_TIME ;
+    private Date PROMISE_TIME ;
     private String TELEPHONE_NO ;
     private String REMARK_TEXT ;
     private String PROMISE_CVCMO_ID ;
@@ -44,7 +49,7 @@ public class Meetings extends BaseEntity {
                     String PROMISE_BRANCH_CODE,String PROMISE_BRANCH_DESC,
                     int TRANS_DATE,int TRANS_TIME,float CONTRACT_NO,
                     int CARD_ID,String GROUP_STATUS,String ACTION_STATUS,
-                    Date PROMISE_DATE,Time PROMISE_TIME,String TELEPHONE_NO,
+                    Date PROMISE_DATE,Date PROMISE_TIME,String TELEPHONE_NO,
                     String REMARK_TEXT,String PROMISE_CVCMO_ID,String REASON_CODE,
                     String PROMISE_USER,String REF_CODE,String product_type) {
 

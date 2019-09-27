@@ -1,16 +1,12 @@
 package co.th.grouplease.CRM_telesale.Entity;
 
-import co.th.grouplease.CRM_telesale.Common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Loader;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -19,9 +15,12 @@ import java.util.Date;
 @Entity(name = "Lead")
 @Table(name = "lead")
 
-public class Lead extends BaseEntity {
+public class Lead {
 
 
+    @Id
+    @GeneratedValue
+    private long LID ;
 
     private String L_RECORD_STATUS ;
     private int L_AS_YEAR ;
@@ -52,13 +51,14 @@ public class Lead extends BaseEntity {
     private Date MTN_DATE_TIME ;
 
 
-    public Lead(String l_RECORD_STATUS, int l_AS_YEAR, int l_AS_MONTH, String l_FIRST_NAME, String l_LAST_NAME,
+    public Lead(long LID,String l_RECORD_STATUS, int l_AS_YEAR, int l_AS_MONTH, String l_FIRST_NAME, String l_LAST_NAME,
                 float CONTRACT_NO, int CARD_ID, String l_PHONE_NUMBER, String l_EMAIL, String l_BRAND_DSC,
                 String l_MODEL_DSC, String l_TUMBON_CURRENT, String l_DISTRICT_CURRENT, String l_PROVINCE_CURRENT,
                 String l_ZIPCODE, String l_COMPANY_TYPE, String l_CONVERT_ACCOUNT, Date MTN_CREATE_DATE, Date MTN_TRN_DATE,
                 String MTN_TRN_FROM, String MTN_TERMINAL_ID, String MTN_PROGRAM_ID, float MTN_BRANCH_CODE,
                 String MTN_USER_ID, Date MTN_DATE_TIME) {
 
+        this.LID = LID ;
         this.L_RECORD_STATUS = l_RECORD_STATUS;
         this.L_AS_YEAR = l_AS_YEAR;
         this.L_AS_MONTH = l_AS_MONTH;

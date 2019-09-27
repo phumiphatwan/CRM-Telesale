@@ -1,15 +1,12 @@
 package co.th.grouplease.CRM_telesale.Entity;
 
-import co.th.grouplease.CRM_telesale.Common.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Loader;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
-import javax.persistence.Entity;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
@@ -17,9 +14,12 @@ import java.util.Date;
 @Entity(name = "Account")
 @Table(name = "account")
 
-public class Account extends BaseEntity {
+public class Account {
 
+    @Id
+    @GeneratedValue
     private long ACID ;
+
     private long LID ;
     private String ACtypeID ;
     private String AC_STATUS ;
